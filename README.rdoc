@@ -1,0 +1,27 @@
+= PeriodDates
+
+This gems adds some instance functions to Date and DateTime in order to get date ranges for a certain period vairable given a date.
+
+You cannot chain after this instance functions as this returns an array of to dates or dateTime objects.
+
+*Functions*:
+- last_period_dates(period)
+- next_period_dates(period)
+- current_period_dates(period)
+- offset_period_dates(period)
+
+Period is optional
+
+*Periods available*:
+- monthly ( default)
+- quarterly
+- biannualy
+
+# Use
+
+```
+date = Date.new(2015,3,1)
+dates = date.current_period_dates('biannually')
+=> dates[0] = 2015-01-01 and dates[1] = 2015-06-01
+```
+
