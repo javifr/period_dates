@@ -28,13 +28,13 @@ class CoreExtTest < ActiveSupport::TestCase
 
 
   def test_date_time_last_period_dates_3
-    # date = DateTime.new(2015,2,2)
-    # date_from = DateTime.new(2014,7,1)
-    # date_to = DateTime.new(2014,12,1).at_end_of_month
-    # # TESTING ALSO DEPENDENCY FORM SEMESTER
-    # dates = date.prev_period_dates('biannually')
-    # assert_equal dates[0], date_from
-    # assert_equal dates[1], date_to
+    date = DateTime.new(2015,2,2)
+    date_from = DateTime.new(2014,7,1)
+    date_to = DateTime.new(2014,12,1).at_end_of_month
+    # TESTING ALSO DEPENDENCY FORM SEMESTER
+    dates = date.prev_period_dates('biannually')
+    assert_equal dates[0], date_from
+    assert_equal dates[1], date_to
   end
 
 
