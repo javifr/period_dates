@@ -84,12 +84,12 @@ class CoreExtTest < ActiveSupport::TestCase
   end
 
   def test_date_time_offset_period_dates_3
-    # date = DateTime.new(2015,2,1)
-    # date_from = DateTime.new(2016,1,1)
-    # date_to = DateTime.new(2016,6,1).at_end_of_month
-    # dates = date.offset_period_dates(2,'biannually')
-    # assert_equal dates[0], date_from
-    # assert_equal dates[1], date_to
+    date = DateTime.new(2015,2,1)
+    date_from = DateTime.new(2016,1,1)
+    date_to = DateTime.new(2016,6,1).at_end_of_month
+    dates = date.offset_period_dates(2,'biannually')
+    assert_equal dates[0], date_from
+    assert_equal dates[1], date_to
   end
 
   # DATE TESTS - Monthly Period
