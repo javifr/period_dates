@@ -28,3 +28,8 @@ dates = date.current_period_dates('biannually')
 => dates[0] = 2015-01-01 and dates[1] = 2015-06-01
 ```
 
+
+# To-Do
+
+- Raise errors when incorrect periods are given!
+- Standarize interface
