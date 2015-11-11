@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    period_dates (0.0.1)
+    period_dates (0.0.2)
       rails (>= 4.0.4)
       semester (>= 0.0.1)
 

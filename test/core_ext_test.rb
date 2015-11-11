@@ -37,6 +37,13 @@ class CoreExtTest < ActiveSupport::TestCase
     assert_equal dates[1], date_to
   end
 
+  def test_date_time_last_period_dates_4
+    date = DateTime.new(2015,2,2)
+    date_from = DateTime.new(2014,7,1)
+    date_to = DateTime.new(2014,12,1).at_end_of_month
+    assert_raises( PeriodDatesIncorrectPeriod) { date.prev_period_dates('biFUUUUUUYU') }
+  end
+
 
   def test_date_time_current_period_dates
     date = DateTime.new(2015,4,3)

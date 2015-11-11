@@ -1,4 +1,11 @@
+class PeriodDatesIncorrectPeriod < StandardError
+end
+
 module Calculations
+    def available_periods
+      ["monthly","quarterly","biannually","semestral"]
+    end
+
     def prev_period_dates(period='monthly')
         bound_dates = []
 
@@ -17,7 +24,11 @@ module Calculations
           bound_dates[1] = self.prev_semester.at_end_of_semester
         end
 
-        bound_dates
+        if !available_periods.include?(period)
+          raise PeriodDatesIncorrectPeriod, "Period must be one of this: #{available_periods.join(', ')}."
+        else
+          bound_dates
+        end
     end
 
     alias :last_period_dates :prev_period_dates
@@ -40,7 +51,11 @@ module Calculations
           bound_dates[1] = self.next_semester.at_end_of_semester
         end
 
-        bound_dates
+        if !available_periods.include?(period)
+          raise PeriodDatesIncorrectPeriod, "Period must be one of this: #{available_periods.join(', ')}."
+        else
+          bound_dates
+        end
     end
 
     def current_period_dates(period='monthly')
@@ -61,21 +76,29 @@ module Calculations
           bound_dates[1] = self.at_end_of_semester
         end
 
-        bound_dates
+        if !available_periods.include?(period)
+          raise PeriodDatesIncorrectPeriod, "Period must be one of this: #{available_periods.join(', ')}."
+        else
+          bound_dates
+        end
     end
 
     def offset_period_dates(offset=0,period='monthly')
         bound_dates = self.current_period_dates
 
-        offset.abs.times do |time|
-          if offset > 0
-            bound_dates = bound_dates[0].next_period_dates(period)
-          elsif offset < 0
-            bound_dates = bound_dates[0].prev_period_dates(period)
+        if !available_periods.include?(period)
+          raise PeriodDatesIncorrectPeriod, "Period must be one of this: #{available_periods.join(', ')}."
+        else
+          offset.abs.times do |time|
+            if offset > 0
+              bound_dates = bound_dates[0].next_period_dates(period)
+            elsif offset < 0
+              bound_dates = bound_dates[0].prev_period_dates(period)
+            end
           end
-        end
 
-        bound_dates
+          bound_dates
+        end
     end
 
 end
