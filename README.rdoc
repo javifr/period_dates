@@ -4,18 +4,21 @@ This gems adds some instance functions to Date and DateTime in order to get date
 
 You cannot chain after this instance functions as this returns an array of to dates or dateTime objects.
 
-*Functions*:
+# Functions:
 - last_period_dates(period)
 - next_period_dates(period)
 - current_period_dates(period)
-- offset_period_dates(period)
+- offset_period_dates(period,offset)
 
-Period is optional
+Period is optional and by default is 'monthly'
+Offset is optional and by default is 0
 
-*Periods available*:
-- monthly ( default)
-- quarterly
-- biannualy
+# Periods available:
+- monthly   ( 1 month )
+- quarterly ( 3 months )
+- biannualy ( 6 months )
+- semestral ( 6 months )
+
 
 # Use
 
