@@ -84,7 +84,7 @@ module Calculations
     end
 
     def offset_period_dates(offset=0,period='monthly')
-        bound_dates = self.current_period_dates
+        bound_dates = self.current_period_dates(period)
 
         if !available_periods.include?(period)
           raise PeriodDatesIncorrectPeriod, "Period must be one of this: #{available_periods.join(', ')}."
