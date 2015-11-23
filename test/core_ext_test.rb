@@ -35,6 +35,12 @@ class CoreExtTest < ActiveSupport::TestCase
     dates = date.prev_period_dates('biannually')
     assert_equal dates[0], date_from
     assert_equal dates[1], date_to
+
+    date_from = DateTime.new(2015,1,1)
+    date_to = DateTime.new(2015,6,1).at_end_of_month
+    dates = date.offset_period_dates(0,'biannually')
+    assert_equal dates[0], date_from
+    assert_equal dates[1], date_to
   end
 
   def test_date_time_last_period_dates_4
